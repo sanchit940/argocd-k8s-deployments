@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: tic-tac-toe-container
-          image: ghcr.io/${{ github.repository }}:latest
+          image: ghcr.io/sanchit940/argocd-k8s-deployments:7d42ebd8c7aba01ddb7fd73c5deb0157978478eb
           ports:
           - containerPort: 80
           resources:
