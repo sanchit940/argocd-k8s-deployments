@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Deployment
+metadata:
+  name: tic-tac-toe-app-deployment
+  labels:
+    app: tic-tac-toe-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tic-tac-toe-app
+  template:
+    metadata:
+      labels:
+        app: tic-tac-toe-app
+    spec:
+      containers:
+        - name: tic-tac-toe-container
+          image: ghcr.io/${{ github.repository }}:latest
+          ports:
+          - containerPort: 80
+          resources:
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
